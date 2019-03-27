@@ -46,7 +46,7 @@
                 <% end %>
               </ul>
             </li>
-            <li><button type="button" class="btn btn-default navbar-btn">+ Dodaj ogłoszenie</button></li>
+            <li><%= button_to "Dodaj ogłoszenie", new_ad_path, type: "button", method: "get", class: "btn btn-default navbar-btn" %></li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
@@ -57,5 +57,6 @@
       <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
+    
   </body>
 </html>
