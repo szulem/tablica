@@ -4,7 +4,12 @@
   <p><%= link_to "Załóż konto", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
 </div> -->
 
-<% @ads.each_with_index do |f, i| %>
-	<%= (i+1).to_s + ". " + f.title %>
-	<%= f.price %>
-<% end %>
+<ol>
+	<% @ads.each_with_index do |f, i| %>
+		<li>
+			<%= f.title %>, <%= f.price.to_i %> zł, 
+				<%= f.user.email %>, 
+				<%= link_to "Zobacz", ad_path(f) %>
+		</li>
+	<% end %>
+</ol>

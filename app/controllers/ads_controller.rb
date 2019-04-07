@@ -14,7 +14,8 @@ class AdsController < ApplicationController
   end
 
   def create
-  	@ad = Ad.new(ad_params)
+  	# @ad = Ad.new(ad_params)
+    @ad = current_user.ads.new(ad_params)
     if @ad.save
       redirect_to @ad, notice: "Your ad was successfully created."
     else
@@ -45,6 +46,6 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-  	params.require(:ad).permit(:title, :category, :description, :localization, :phone)
+  	params.require(:ad).permit(:title, :category, :description, :localization, :phone, :price, :user_id)
   end
 end
