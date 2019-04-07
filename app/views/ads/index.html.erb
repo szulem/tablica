@@ -1,5 +1,15 @@
-<div class="jumbotron">
+<!-- <div class="jumbotron">
   <h1>Tablica</h1>
   <p>Portal ogłoszeń lokalnych. Dodawaj i przeglądaj ogłoszenia za darmo, bez ograniczeń!</p>
   <p><%= link_to "Załóż konto", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
-</div>
+</div> -->
+
+<ol>
+	<% @ads.each_with_index do |f, i| %>
+		<li>
+			<%= f.title %>, <%= f.price.to_i %> zł, 
+				<%= f.user.email %>, 
+				<%= link_to "Zobacz", ad_path(f) %>
+		</li>
+	<% end %>
+</ol>
