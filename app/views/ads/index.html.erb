@@ -12,7 +12,7 @@
     <div class="thumbnail">
       <%= link_to image_tag(f.picture.url(:medium)), ad_path(f) %>
       <div class="caption">
-        <h5><%= link_to "#{f.title}", ad_path(f) %></h5>
+        <p><strong><%= link_to "#{f.title.truncate(30, omission: '...')}", ad_path(f), title: "#{f.title}" %></strong></p>
         <p><%= f.price.to_i %> zł</p>
       </div>
     </div>
