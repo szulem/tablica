@@ -10,7 +10,7 @@
 	<% @ads.each do |f| %>
   <div class="col-xs-6 col-md-3">
     <div class="thumbnail">
-      <img src="https://dummyimage.com/250x200/f4f4f4/000000.png" alt="...">
+      <%= link_to image_tag(f.picture.url(:medium)), ad_path(f) %>
       <div class="caption">
         <h5><%= link_to "#{f.title}", ad_path(f) %></h5>
         <p><%= f.price.to_i %> zł</p>

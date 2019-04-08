@@ -8,3 +8,9 @@
 <p><%= @ad.localization %></p>
 <p>tel. <%= @ad.phone %></p>
 <p>Cena: <%= @ad.price.to_i %></p>
+
+<p><%= image_tag(@ad.picture.url(:medium)) %></p>
+
+<br />
+
+<p><%= link_to "Edycja ogłoszenia", edit_ad_path %></p>
