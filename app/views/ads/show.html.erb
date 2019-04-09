@@ -16,8 +16,10 @@
           <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @ad.localization %>
         </p>
         <p>
-          <h3><%= @ad.user.email %></h3>
+          <h3><%= link_to "#{@ad.user.email}", root_path %></h3>
         </p>
+        <p>Na Tablicy od <%= @ad.user.created_at.strftime("%b %Y") %></p>
+        <br />
         <p>
           <a href="#" class="btn btn-default" role="button">Ogłoszenia użytkownika</a>
         </p>
