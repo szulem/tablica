@@ -1,21 +1,26 @@
-<!-- <div class="jumbotron">
-  <h1>Tablica</h1>
-  <p>Portal ogłoszeń lokalnych. Dodawaj i przeglądaj ogłoszenia za darmo, bez ograniczeń!</p>
-  <p><%= link_to "Załóż konto", new_user_registration_path, class: "btn btn-primary btn-lg" %></p>
-</div> -->
+<h3>Ogłoszenia</h3>
 
-<h3>Ostatnie ogłoszenia</h3>
-
-<div class="row">
 	<% @ads.each do |f| %>
-  <div class="col-xs-6 col-md-3">
-    <div class="thumbnail">
-      <img src="https://dummyimage.com/250x200/f4f4f4/000000.png" alt="...">
-      <div class="caption">
-        <h5><%= link_to "#{f.title}", ad_path(f) %></h5>
-        <p><%= f.price.to_i %> zł</p>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
+		<div class="row row-padded">
+		  <div class="col-xs-6 col-md-2">
+	    	<div class="thumbnail">
+	      	<%= link_to image_tag(f.picture.url(:medium)), ad_path(f) %>
+	      </div>
+		  </div>
+		  <div class="col-xs-6 col-md-8">
+		  	<h4><%= link_to "#{f.title}", ad_path(f), title: "#{f.title}" %></h4>
+		  	<p><%= f.category %></p>
+		  	<br />
+		  	<br />
+		  	<p>
+		  		<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= f.localization %>
+		  		&nbsp; &nbsp; &nbsp;
+		  		<span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= f.created_at.strftime("%d %b %Y") %>
+		  	</p>
+		  </div>
+		  <div class="col-xs-6 col-md-2">
+		  	<h3><%= f.price.to_i %> zł</h3>
+		  	<h6><%= f.to_negotiation ? 'Do negocjacji' : '' %></h6>
+		  </div>
+		</div>
+	<% end %>
