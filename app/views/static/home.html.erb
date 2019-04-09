@@ -1,0 +1,15 @@
+<h3>Ostatnie ogłoszenia</h3>
+
+<div class="row">
+	<% @ads.each do |f| %>
+  <div class="col-xs-6 col-md-3">
+    <div class="thumbnail">
+      <%= link_to image_tag(f.picture.url(:medium)), ad_path(f) %>
+      <div class="caption">
+        <p><strong><%= link_to "#{f.title.truncate(30, omission: '...')}", ad_path(f), title: "#{f.title}" %></strong></p>
+        <p><%= f.price.to_i %> zł</p>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
