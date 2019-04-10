@@ -2,7 +2,7 @@
   <div class="col-xs-6 col-md-8">
     <%= image_tag(@ad.picture.url(:big)) %>
     <h2><%= @ad.title %></h2>
-    <%= @ad.localization %> | Dodane o <%= @ad.created_at.strftime("%H:%M, %d %B %Y") %>, ID ogłoszenia: <%= @ad.id %> | <%= link_to "Edytuj", edit_ad_path %>
+    <%= @ad.localization %> | Dodane o <%= @ad.created_at.strftime("%H:%M, %d %B %Y") %>, ID ogłoszenia: <%= @ad.id %> <% if @ad.user == current_user %> | <%= link_to "Edytuj", edit_ad_path %> <% end %>
     <br />
     <br />
     <p><%= @ad.description %></p>
@@ -27,26 +27,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<!-- 
-<h1><%= @ad.title %></h1>
-
-<p><strong><%= @ad.category %></strong></p>
-<p><%= @ad.description %></p>
-
-<hr>
-
-<p><%= @ad.localization %></p>
-<p>tel. <%= @ad.phone %></p>
-<p>Cena: <%= @ad.price.to_i %></p>
-
-<p><%= image_tag(@ad.picture.url(:big)) %></p>
-
-<br />
-
-<p><%= link_to "Edycja ogłoszenia", edit_ad_path %></p> -->
