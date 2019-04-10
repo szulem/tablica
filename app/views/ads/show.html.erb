@@ -1,8 +1,8 @@
 <div class="row">
   <div class="col-xs-6 col-md-8">
-    <%= image_tag(@ad.picture.url(:original)) %>
+    <%= image_tag(@ad.picture.url(:big)) %>
     <h2><%= @ad.title %></h2>
-    <%= @ad.localization %> | Dodane o <%= @ad.created_at.strftime("%H:%M, %d %B %Y") %>, ID ogłoszenia: <%= @ad.id %>
+    <%= @ad.localization %> | Dodane o <%= @ad.created_at.strftime("%H:%M, %d %B %Y") %>, ID ogłoszenia: <%= @ad.id %> | <%= link_to "Edytuj", edit_ad_path %>
     <br />
     <br />
     <p><%= @ad.description %></p>
