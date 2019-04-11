@@ -10,6 +10,7 @@
   <div class="col-xs-6 col-md-4">
     <div class="thumbnail">
       <h3><strong><%= @ad.price.to_i %> zł</strong></h3>
+      <h6><%= @ad.to_negotiation ? 'Do negocjacji' : '' %></h6>
       <img src="https://dummyimage.com/350x200/f4f4f4/000000.png&text=tablica" alt="...">
       <div class="caption">
         <p>
