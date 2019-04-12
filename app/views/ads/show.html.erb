@@ -17,12 +17,12 @@
           <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= @ad.localization %>
         </p>
         <p>
-          <h3><%= link_to "#{@ad.user.email}", root_path %></h3>
+          <h3><%= link_to "#{@ad.user.email}", user_path(@user) %></h3>
         </p>
         <p>Na Tablicy od <%= @ad.user.created_at.strftime("%b %Y") %></p>
         <br />
         <p>
-          <a href="#" class="btn btn-default" role="button">Ogłoszenia użytkownika</a>
+          <%= link_to "Ogłoszenia użytkownika", user_path(@user), class: "btn btn-default" %>
         </p>
       </div>
     </div>
