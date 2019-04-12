@@ -42,8 +42,7 @@
                   <li><%= link_to "Zaloguj się", new_user_session_path %></li>
                   <li><%= link_to "Rejestracja", new_user_registration_path %></li>
                 <% else %>
-                  <li><%= link_to "Moje ogłoszenia", user_path(current_user) %></li>
-                  <li><%= link_to "Wyloguj się", destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to "Log out", destroy_user_session_path, method: :delete %></li>
                 <% end %>
               </ul>
             </li>

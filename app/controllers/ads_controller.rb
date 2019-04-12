@@ -4,20 +4,19 @@ class AdsController < ApplicationController
   before_action :ad_owner, only: %i[edit update destroy]
 
   def index
-    @ads = Ad.all.order("created_at DESC")
+  	@ads = Ad.all.order("created_at DESC")
   end
 
   def show
-    @ad = Ad.find(params[:id])
-    @user = @ad.user_id
+  	@ad = Ad.find(params[:id])
   end
 
   def new
-    @ad = Ad.new
+  	@ad = Ad.new
   end
 
   def create
-    # @ad = Ad.new(ad_params)
+  	# @ad = Ad.new(ad_params)
     @ad = current_user.ads.new(ad_params)
     if @ad.save
       redirect_to @ad, notice: "Your ad was successfully created."
@@ -50,7 +49,7 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:title, :category, :description, :localization, :phone, :price, :picture, :to_negotiation, :user_id)
+  	params.require(:ad).permit(:title, :category, :description, :localization, :phone, :price, :picture, :to_negotiation, :user_id)
   end
 
   def ad_owner
