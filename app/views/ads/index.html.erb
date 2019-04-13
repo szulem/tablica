@@ -1,26 +1,3 @@
 <h3>Ogłoszenia</h3>
 
-	<% @ads.each do |f| %>
-		<div class="row row-padded">
-		  <div class="col-xs-6 col-md-2">
-	    	<div class="thumbnail">
-	      	<%= link_to image_tag(f.picture.url(:medium)), ad_path(f) %>
-	      </div>
-		  </div>
-		  <div class="col-xs-6 col-md-8">
-		  	<h4><%= link_to "#{f.title}", ad_path(f), title: "#{f.title}" %></h4>
-		  	<p><%= f.category %></p>
-		  	<br />
-		  	<br />
-		  	<p>
-		  		<span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> <%= f.localization %>
-		  		&nbsp; &nbsp; &nbsp;
-		  		<span class="glyphicon glyphicon-time" aria-hidden="true"></span> <%= f.created_at.strftime("%d %b %Y") %>
-		  	</p>
-		  </div>
-		  <div class="col-xs-6 col-md-2">
-		  	<h3><%= f.price.to_i %> zł</h3>
-		  	<h6><%= f.to_negotiation ? 'Do negocjacji' : '' %></h6>
-		  </div>
-		</div>
-	<% end %>
+<%= render '/common_files/ads_list' %>
