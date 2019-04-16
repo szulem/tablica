@@ -2,6 +2,7 @@ class AdsController < ApplicationController
   before_action :set_ad, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
   before_action :ad_owner, only: %i[edit update destroy]
+  before_action :set_all_categories_and_subcategories, only: [:new, :edit]
 
   def index
     @ads = Ad.all.order("created_at DESC")
@@ -50,7 +51,7 @@ class AdsController < ApplicationController
   end
 
   def ad_params
-    params.require(:ad).permit(:title, :category, :description, :localization, :phone, :price, :picture, :to_negotiation, :user_id)
+    params.require(:ad).permit(:title, :description, :localization, :phone, :price, :picture, :to_negotiation, :category_id, :subcategory_id, :user_id)
   end
 
   def ad_owner
@@ -58,5 +59,10 @@ class AdsController < ApplicationController
       flash[:alert] = 'Nie masz uprawnień do edycji tego ogłoszenia.'
       redirect_to root_path
     end
+  end
+
+  def set_all_categories_and_subcategories
+    @categories = Category.all
+    @subcategories = Subcategory.all
   end
 end
