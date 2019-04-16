@@ -7,7 +7,7 @@
 		  </div>
 		  <div class="col-xs-6 col-md-8">
 		  	<h4><%= link_to "#{f.title}", ad_path(f), title: "#{f.title}" %></h4>
-		  	<p><%= f.category %></p>
+		  	<p><%= f.category.present? ? f.category.title : "brak kategorii" %></p>
 		  	<br />
 		  	<br />
 		  	<p>
