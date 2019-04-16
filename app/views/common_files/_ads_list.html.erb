@@ -26,3 +26,7 @@
 		  </div>
 		</div>
 	<% end %>
+
+	<div class="row">
+		<%= will_paginate @ads, renderer: BootstrapPagination::Rails, previous_label: "Poprzednie", next_label: "Następne", inner_windows: 1, outer_window: 0 %>
+	</div>

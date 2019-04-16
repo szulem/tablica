@@ -5,7 +5,7 @@ class AdsController < ApplicationController
   before_action :set_all_categories_and_subcategories, only: [:new, :edit]
 
   def index
-    @ads = Ad.all.order("created_at DESC")
+    @ads = Ad.all.paginate(page: params[:page], per_page: 10).order('created_at DESC')
   end
 
   def show
