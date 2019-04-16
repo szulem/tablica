@@ -31,6 +31,7 @@ gem 'devise'
 gem 'devise-bootstrap-views', '~> 1.0'
 gem 'simple_form'
 gem 'paperclip', '~> 6.1'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
 
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
