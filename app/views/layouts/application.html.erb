@@ -35,18 +35,18 @@
 
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Ogłoszenia", ads_path %></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moja Tablica <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <% if !user_signed_in? %>
-                  <li><%= link_to "Zaloguj się", new_user_session_path %></li>
-                  <li><%= link_to "Rejestracja", new_user_registration_path %></li>
-                <% else %>
+            <% if !user_signed_in? %>
+              <li><%= link_to "Zaloguj się", new_user_session_path %></li>
+              <li><%= link_to "Rejestracja", new_user_registration_path %></li>
+            <% else %>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Moja Tablica <span class="caret"></span></a>
+                <ul class="dropdown-menu">
                   <li><%= link_to "Moje ogłoszenia", user_path(current_user) %></li>
                   <li><%= link_to "Wyloguj się", destroy_user_session_path, method: :delete %></li>
-                <% end %>
-              </ul>
-            </li>
+                </ul>
+              </li>
+            <% end %>
             <li><%= button_to "+ Dodaj ogłoszenie", new_ad_path, type: "button", method: "get", class: "btn btn-default navbar-btn" %></li>
           </ul>
         </div><!-- /.navbar-collapse -->
